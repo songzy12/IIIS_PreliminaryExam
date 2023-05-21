@@ -1,0 +1,8 @@
+\section{Turan's bound}
+
+{\bf Solution:} Here we show how to get a indepent set with $|V|\ge\sum\frac{1}{deg(v)+1}$, then $\alpha(G)\ge|V|$.
+
+Everytime, we select the vertex that with the least degree, put it into the indepent set, then delete it and all its neighbors. By doing each step of this, we add 1 to the final result, we distribute this to the $d+1$ nodes, which is 
+\[
+1 = (d+1)\frac{1}{d+1} \ge \frac{1}{d+1} + \frac{1}{v_1+1} + \frac{1}{v_2+1}+\dots+\frac{1}{v_d+1} 
+\]

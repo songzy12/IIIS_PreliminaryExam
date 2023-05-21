@@ -1,0 +1,8 @@
+
+\section{Catch a car without knowing anything}
+\[
+p+vt
+\]
+{\bf Solution:} Since we know the position of the car at time $t$ is $p+vt$, so the problem is that whether we can determine $p$ and $v$ in finite time. That is, if we query position $p_0+v_0t$ at time $t$, and the car is not there, then we can rule out the combination $(p_0, v_0)$. Furthermore, if we check $(p_0, v_0)$ at time $t$, then we can check $(-p_0, v_0)$, $(p_0, -v_0)$, $(-p_0, -v_0)$ at the next three continous time points. So the problem is now turned into whether we can find a way to enumerate $\{(p,v)|p,v\in N\}$ so that a fixed pair $(p_0,v_0)$ can always be encountered in finite time.
+
+Just recall the halting problem and the diagonalization method, i.e., we put all $(p,v)$ onto a two dimensional coordinate, then we enumerate alongside the diagonals: $(0,0)$, $(0,1)$, $(1,0)$, $(0,2)$, $(1,1)$, $(2,0)$, $\dots$ It can be easily shown that this will complete our algorithm.

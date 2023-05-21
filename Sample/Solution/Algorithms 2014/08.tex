@@ -1,0 +1,24 @@
+\section{Solve the following two recurrences}
+\begin{itemize}
+\item $T(n) = 2T(n/2) + n\log n$
+
+\ \\{\bf Solution:} Using master theorem where $a=2,b=2,c=1,k=1$, we can get
+\[
+T(n) = n\log^2 n
+\]
+\item $T(n) = 2T(\sqrt{n}) + \log n$
+
+\ \\{\bf Solution:} Let $n_1=\log n$, $T_1(n_1)=T(2^{n_1})=T(n)$, then 
+\[
+T_1(n_1)=T(n)=2T(\sqrt{n})+\log n = 2 T(2^{n_1/2}) + n_1 = 2 T_1(n_1/2) + n_1
+\]
+Using master theorem with $a=2,b=2,k=0$, we have
+\[
+T_1(n_1) = n_1\log n_1
+\]
+Thus
+\[
+T(n) = \log n \log\log n
+\]
+\end{itemize}
+

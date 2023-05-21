@@ -1,0 +1,63 @@
+
+
+\section{Graphical Models}
+
+In this MRF model, the associated potential functions are defined by 
+\[
+\phi(x,y)=2xy+x^3
+\]
+\[
+\phi(x,z)=xz+z
+\]
+\[
+\phi(y,z)=yz^3
+\]
+
+\begin{enumerate}
+\item Compute the posterior marginal probability $P(y|x=1)$
+
+\ \\{\bf Solution:} 
+\[
+P(x,y,z) = \frac{1}{Z} \prod \phi(x,y)\phi(y,z)\phi(x,z) 
+\]
+\begin{eqnarray*}
+Z &=& \sum\prod \phi(x,y)\phi(y,z)\phi(x,z) \\
+&=& (2+1)(1+1)(1) + \cdots
+\end{eqnarray*}
+Note: actually we do not need to compute $Z$ explicitly, since it will be cancelled out in later calculation. (Credit to Xin Liu $\varheartsuit$)
+\[
+P(x,y) = \sum_z P(x,y,z)
+\]
+\[
+P(x) = \sum_{y,z} P(x,y,z)
+\]
+\[
+P(y|x=1) = \frac{P(x=1,y)}{P(x=1)}
+\]
+
+\item In the following three directed graphical models, assume variable $y$ has been observed:
+\[
+x\rightarrow y\rightarrow z
+\]
+\[
+x\rightarrow y\leftarrow z
+\]
+\[
+x\leftarrow y \rightarrow z
+\]
+In the above three directed models, argue whether $x$ and $z$ are conditionally independent, given $y$. 
+
+\ \\{\bf Solution:} 
+Independent:
+\[
+P(x,z|y) = \frac{P(x,z,y)}{P(y)} = \frac{P(x)P(y|x)P(z|y)}{P(y)} = P(x|y)P(z|y)
+\]
+Not independent:
+\[
+P(x,z|y) = \frac{P(x,y,z)}{P(y)} = \frac{P(x)P(z)P(y|x,z)}{P(y)}\ne P(x|y) P(z|y)
+\]
+Independent:
+\[
+P(x,z|y) = \frac{P(x,y,z)}{P(y)} = \frac{P(y)P(x|y)P(z|y)}{P(y)} = P(x|y) P(z|y)
+\]
+\end{enumerate}

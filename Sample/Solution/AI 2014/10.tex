@@ -1,0 +1,25 @@
+
+\section{Probabilistic model learning}
+
+Given training data $x_1,\dots,x_n,\dots,x_N$, single densities $i\in 1,\dots, I$ where $I$ is the total number of densities and unknown model parameter $\lambda$, estimate the model density $p(i|\lambda)$ in mixture density $p(x_n|\lambda)=\sum_i p(i|\lambda) \cdot p(x_n|i,\theta_i)$ using Expectation Maximization, according to the maximum likelihood criterion.
+
+\ \\{\bf Solution:} 
+\[
+p(x_n|\lambda)=\sum_i p(i|\lambda) \cdot p(x_n|i,\theta_i)
+\]
+Here $i$ is the hidden variable, and $\theta_i$ is model parameter. In the E step, we compute the probability that the data point $x_j$ comes from density $i$
+\[
+p_{ij} = P(I=i|x_j) = \alpha P(x_j|I=i, \theta_i) P(I=i|\lambda)
+\]
+In the M step, we compute the $\theta_i$ maximize the probability that we get these data points.
+\[
+E = \sum p_{ij} \log P(x_j|I=i, \theta)
+\]
+We update the $\theta$
+\[
+\theta = \arg\max_{\theta} E
+\]
+Then we update the density estimation.
+\[
+P(I=i|\lambda) = \sum_j p_{ij}
+\]

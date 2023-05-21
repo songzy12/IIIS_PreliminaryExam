@@ -1,0 +1,9 @@
+
+
+\section{}
+
+An interval graph is undirected graph $G=(V,E)$ where vertices correspond to intervals on the real line, where each interval is specified by a leftmost value $v_1$ and a rightmost value $v_2$. Two vertices in $G$ are connected iff the corresponding intervals overlap. Let $G$ be an interval graph whose corresponding intervals are provided. Give a polynomial time algorithm to find a maximum independent set in $G$. You need to prove the correctness of your algorithm. (An independent set in a graph is a subset of vertices such that no two vertices in the subset are joined by an edge.)
+
+\ \\{\bf Solution:} This problem is equivalent to find the maximum set of intervals with no intersection. We can use greedy algorithm. First sort the intervals using the rightmost value as key. Then go through the sorted list, each time we select the interval with the minimal rightmost value that has no intersection with the already selected ones. We show the correctness as follows.
+
+Suppose there is another set of intervals $S'$ that is different from the result of our algorithm $S$. Then after sorting $S'$, we can always find the first interval $i'$ in $S'$ that is different from $i$ in $S$. We simply replace $i'$ with $i$, note that this will not violent the independent property. We can always do this until the last element of $S'$. Thus we have $|S'| \le |S|$

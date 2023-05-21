@@ -1,0 +1,14 @@
+
+\section{General machine learning}
+
+\begin{enumerate}
+\item In the curve fitting problem on a set of data points, what is the disadvantage of Nearest Neighbors approach compared to Least Squares method?
+
+\ \\{\bf Solution:} Every time we need to start the computation from zero. It is computationally expensive to find the k nearest neighbors when the dataset is very large. Performance depends on the number of dimensions that we have.
+
+On the other hand, it is important how we compute the distance (there may be unrelated features). Also when the dimension is large, the sample data tends to be located at the corner, causing the distance metric meaningless. One solution is to use weighed features to compute the distance. (Credit to Tianqi Zhao) 
+
+\item True/False ``When training a linear regression estimator, 10-fold cross-validation has smaller bias than 5-fold cross-validation''
+
+\ \\{\bf Solution:} Yes. Bias is different from variance. The model we train as a part of the testing procedure, would be as close as possible to the one that we would get if we trained it on the entire dataset.
+\end{enumerate}

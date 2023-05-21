@@ -1,0 +1,19 @@
+
+
+\section{Search}
+
+When are the following search algorithm optimal (i.e., find a solution that satisfies the goal conditions while incurs minimum cost)? Please be precise about the conditions you define.
+\begin{enumerate}
+\item BFS
+\item DFS
+\item A*
+\end{enumerate}
+
+\ \\{\bf Solution:}
+\begin{enumerate}
+\item BFS is optimal if the path cost is a nondecreasing function of the depth of the node. The most common such scenario is that all actions have the same cost. (AIMA P82). 
+\item The advantage of DFS over BFS is in the space complexity. (AIMA P86) So when there is only one unique goal with a deep path, DFS is optimal.
+\item  the tree-search version of $A^*$ is optimal if $h(n)$ is admissible, while the graph-search version is optimal if $h(n)$ is consistent (AIMA P95).
+\end{enumerate}
+
+Or refer to AIMA P108 for a summary of all kinds of search algorithms.

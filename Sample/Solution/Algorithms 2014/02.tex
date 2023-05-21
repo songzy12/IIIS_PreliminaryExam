@@ -1,0 +1,13 @@
+\section{Finding the maximum area polygon}
+
+We are given a unit circle and $n$ points on the circle. Design a polynomial time algorithm that, given a number $m<n$, finds $m$ points (out of $n$ points) such that the area of the polygon formed by the $m$ points is maximized.
+
+\ \\{\bf Solution:} We can use a dynamic programming method. Suppose the polygon is rooted at 0, then we let $dp[m][i]$ be the maximum area we can get for a $m$-gon with the largest index vertex $i$. 
+\[
+dp[m][i] = max(\{dp[m-1][j]+area(0, i, j)|j<i\})
+\]
+Then the answer for root 0 is just
+\[
+answer = max(\{dp[n][i] | 1\le i\le n\}) 
+\]
+Then we enumerate all the possible root position (rather than 0) in time $O(n)$. That completes our polynomial algorithm.

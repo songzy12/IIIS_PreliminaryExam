@@ -1,0 +1,4 @@
+\section{}
+Show that finding a min-cost matching with exactly $k$ edges in a bipartite graph can be solved in polynomial time.
+
+\ \\{\bf Solution:} We can turn this into a minimum-cost maximum-flow probelm. Add a source $s$ and a sink $t$, together with a $s'$ and $t'$, where there is an edge with capacity $k$ from $s$ to $s'$, and an edge with capacity 1 from $s'$ to all the vertices in $U$. The same is with $t'$ and $t$. The edges in $E$ are all assigned with a capacity 1. All newly added edges are assigned with a cost 0. Then we just need to compute the minimum-cost maximum-flow of this new graph $G'$, where a polynomial algorithm exists.

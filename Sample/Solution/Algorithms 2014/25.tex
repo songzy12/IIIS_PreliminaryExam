@@ -1,0 +1,13 @@
+\section{Longest increasing subsequence}
+Design a polynomial time algorithm that finds an longest increasing subsequence in the given sequence $S$.
+
+\ \\{\bf Solution:} We use $dp[i][j]$ to denote the answer of longest increasing subsequence starting from $s[i]$, with the constrain that the first character must be larger than $s[j]$. Suppose the suffix of $s$ is from $1$ to $n$, and $dp[i][0]$ means there is no constrain. So our goal is to get $dp[1][0]$.
+
+The transfer between states are as follows:
+\begin{itemize}
+\item $dp[n+1][j] = 0$
+\item $dp[i][j] = max(1+dp[i+1][i], dp[i+1][j])$, if $s[i] >= s[j]$ and $i <= n$
+\item $dp[i][j] = dp[i+1][j]$, if $s[i] < s[j]$ and $i <= n$
+\end{itemize}
+
+Note the dp only has $O(n^2)$ different states, that makes our algorithm polynomial.

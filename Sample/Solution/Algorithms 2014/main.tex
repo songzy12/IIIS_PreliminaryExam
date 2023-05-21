@@ -1,0 +1,102 @@
+\documentclass[a4paper]{article}
+
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+
+%% Sets page size and margins
+\usepackage[a4paper,top=3cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+\title{Algorithms. A Collection of Problems}
+\author{Zhengyang Song}
+
+\begin{document}
+\maketitle
+
+\input{01}
+\input{02}
+\input{03}
+\input{04}
+\input{05}
+\input{06}
+
+\section{Four Russians Speedup}
+
+\input{08}
+\input{09}
+\input{10}
+\input{11}
+
+\section{Unit tasks scheduling}
+\section{Coin changing}
+\section{Schedule to minimize completion time}
+\section{}
+\section{}
+\section{}
+Given an undirected graph $G(V,E)$, a feedback set is a set $X\subset V$ with the property that $G-X$ has no circles. The undirected feedback set problem asks whether $G$ contains a feedback set of size at most $k$. Show that the problem is NP-complete.
+\section{Rearrangeable Matrix}
+\input{19}
+\section{Multiple Interval Scheduling}
+\section{}
+\input{22}
+\input{23}
+
+\section{Polynomial Multiplication}
+\[
+P(x) = \prod_{i=1}^n(a_ix+b_i)
+\]
+
+\input{25}
+
+\section{}
+\begin{enumerate}
+\item Give a strategy to win this game in a finite number of moves.
+\item Show that there is a strategy that guarantees a win if the number of cups $N$ is a power of 2.
+\item Show that there is not a strategy that guarantees a win if the number of cups $N$ is not a power of 2.
+\end{enumerate} 
+
+\section{}
+\section{}
+A Hamitonian cycle is a cycle that goes through all vertices exactly once. Prove: Every graph with $n\ge 3$ vertices and minimum degree at least $\lceil n/2 \rceil$ has a Hamitonian cycle.
+
+\input{29}
+\input{30}
+
+\section{Traveling salesman in the unit square}
+\begin{enumerate}
+\item 
+\[
+|v_1v_2|^2+\dots+|v_{n-1}v_n|^2+|v_nv_1|^2 \le 4
+\]
+\item {\bf Solution:} Cauchy's Inequality.
+\begin{eqnarray*}
+&&(|v_1v_2|+\dots+|v_{n-1}v_n|+|v_nv_1|)^2 \\
+&\le& (1^2+1^2+\dots+1^2)\cdot (|v_1v_2|^2+\dots+|v_{n-1}v_n|^2+|v_nv_1|^2) \\
+&=& n\cdot (|v_1v_2|^2+\dots+|v_{n-1}v_n|^2+|v_nv_1|^2) \\
+&\le& n\cdot 4
+\end{eqnarray*}
+\end{enumerate}
+\section{}
+\begin{enumerate}
+\item {\bf Solution:} BFS
+\item {\bf Solution:} BFS
+\item 
+\end{enumerate}
+\section{}
+\input{34}
+\input{35}
+\input{36}
+\section{}
+\section{}
+
+\bibliographystyle{alpha}
+\bibliography{sample}
+
+\end{document}

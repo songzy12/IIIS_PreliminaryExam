@@ -1,0 +1,9 @@
+
+
+\section{Longest palindrome subsequence}
+{\bf Solution:} Let $dp[i][j]$ be the length of maximum subsequence from s[i...j]. Then we have 
+\[ dp[i][i]=1 \]
+\[ dp[i][j]=0, \forall i > j \]
+\[ dp[i][j] = max(dp[i+1][j], dp[i][j-1]) \ \text{if } s[i]\ne s[j] \]
+\[ dp[i][j] = max(dp[i+1][j], dp[i][j-1], dp[i+1][j-1]+2)\ \text{if }  s[i] == s[j]\]
+Note dp array is in size $O(n^2)$, thus our algorithm running time.

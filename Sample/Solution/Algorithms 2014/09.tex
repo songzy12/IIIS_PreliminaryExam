@@ -1,0 +1,9 @@
+\section{Maximal Common Subsequence}
+{\bf Solution:} We use dp[i][j] to denote the answer for $a_1\dots a_i$, $b_1\dots b_j$. Then the outer wrapper is two loops (one for $a$ and one for $b$), which makes the time complexity $O(mn)$. Then inner is just
+\[
+dp[i][j] = \max(dp[i-1][j], dp[i-1][j-1]+1) \text{ if } a[i] == b[j]
+\]
+\[
+dp[i][j] = dp[i-1][j] \text{ if } a[i] != b[j]
+\]
+Also note that when we update the $i$-th line of $dp$, we only use the information of the $i-1$-th line. That makes the space complexity $O(m+n)$.

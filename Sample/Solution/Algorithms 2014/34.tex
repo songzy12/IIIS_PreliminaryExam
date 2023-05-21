@@ -1,0 +1,20 @@
+\section{}
+Initially, we have $n$ empty bins. In each round, we throw a ball into a uniformly random chosen bin. Let $T$ be number of rounds needed such taht no bin is empty. Show that $E[T]=nH_n$ where $H_n = \sum_{i=1}^n\frac{1}{i}$.
+
+\ \\{\bf Solution:} We denote $E_m$ as the expected number of rounds needed when there are still $m$ bins are left empty.
+\[
+E_m = \frac{m}{n} (1+E_{m-1}) + \frac{n-m}{n} (1+E_m)
+\]
+\[
+E_0 = 0
+\]
+Then we have
+\[
+E_m = E_{m-1} + \frac{n}{m}
+\]
+\begin{eqnarray*}
+E_n &=& E_{n-1} + \frac{n}{n} \\
+&=& E_{n-2} + \frac{n}{n-1} + \frac{n}{n}\\
+&=& E_0 + \frac{n}{1} + \dots + \frac{n}{n} \\
+&=& n H_n
+\end{eqnarray*}

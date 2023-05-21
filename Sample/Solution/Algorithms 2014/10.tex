@@ -1,0 +1,16 @@
+
+\section{Stick Game}
+{\bf Solution:} We just maintain a bool array $win[i]$, which means if there are $i$ sticks left, then the next player will win. Then we show how to compute $win[n]$ in polynomail time.
+
+We initialize 
+\[
+win[0]=false, win[1]=true, win[2]=false, win[3]=true, win[4]=true
+\]
+
+Then the recursion is as 
+\[
+win[i] = true \text{ if } win[i-1] = false \text{ or } win[i-4]=false
+\]
+\[
+win[i] = false \text{ if } win[i-1] = true \text{ and } win[i-4] = true
+\]

@@ -1,0 +1,32 @@
+
+\section{SVM}
+
+\[
+\begin{matrix}
+x_{i1} & x_{i2} & y_i & \alpha_i \\
+1 & 4 & 1 & 2\\
+1.5 & 7 & 1 & 0\\
+2 & 6 & 1 & 0\\
+\end{matrix}
+\]
+\begin{enumerate}
+\item What are the support vectors of this training data?
+
+\ \\{\bf Solution:} where the $\alpha_i\ne 0$.
+
+\item Assume that the decision surface bias is $b=-1.8$. Compute the weight vector $w$ using the data in the table given above.
+
+\ \\{\bf Solution:} 
+\[ 
+w = \sum \alpha_i x_iy_i
+\]
+
+\item Consider the points $(1,4),(4.5,3),(2,2)$ and $(3,1)$ from the table above. How are these points classified by the model? Compute the slack variables $x_i$ for these points.
+
+\item Use the SVM model to compute a classification for a test data point $(4,4)$.
+
+\ \\{\bf Solution:}
+\[
+y = w^Tx+b
+\]
+\end{enumerate}

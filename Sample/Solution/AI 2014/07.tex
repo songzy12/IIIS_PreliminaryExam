@@ -1,0 +1,28 @@
+
+\section{Probability theory and probabilistic reasoning}
+
+\begin{enumerate}
+\item 
+\ {\bf Solution:}
+\[
+P(young|use) = \frac{P(young)P(use|young)}{P(use)} = \frac{0.8}{0.8+0.2+0.4\times2}
+\]
+\item A Bayesian Network is a DAG to represent the conditional dependencies for a set of random variable. Given $n$ random variables, how many possible Bayesian Networks could be constructed to represent their conditional dependencies?
+
+\ \\{\bf Solution:} The question is how many different DAGs can be formed using $n$ nodes. % http://arantxa.ii.uam.es/~ssantini/writing/notes/s649_dag_counting.pdf
+
+\[
+G(n)=\sum_{m=1}^n \sum_{n_1+\dots+n_m=m,n_i\ge1} \prod_{i=1}^{m-1} (2^{[i]}-2^{[i-1]})^{n_{i+1}}
+\]
+where $[k]=\sum_{h=1}^k n_h$
+
+\item {\bf Solution:} No. Since D is dependent on C, and C is dependent on A. Image $P(C=true|A=true)=1$ and $P(D=true|C=ture)=1$, then $P(D=true|A=true) = 1$. The fact that no edge from A to D only means that A does not directly influence D.
+
+\begin{eqnarray*}
+P(E|A) &=& P(B|A) P(C|A,B) P(E|C)
+\end{eqnarray*}
+
+\item Are small Markov blankets better when performing inference using Gibbs sampling? Briefly explain in one or two sentences why or why not.
+
+\ \\{\bf Solution:} Yes. Because when Markov blanket is large, the inference won't change much.
+\end{enumerate}

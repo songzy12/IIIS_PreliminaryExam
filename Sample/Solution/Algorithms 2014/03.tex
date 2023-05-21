@@ -1,0 +1,12 @@
+\section{Longest palindrome subsequence}
+
+A palindrome is a nonempty string over some alphabet that reads the same forward and backward. For example, aaaabaaaa, 00000, abcddcba are all palindrome. Give an efficient algorithm to find the longest palindrome that is a subsequence of a given input string. Your algorithm should run in time better than $O(n^3)$.
+
+\ \\{\bf Solution:} Substrings are consecutive subsequences. We can use dynamic programming.
+
+Let $dp[i][j]$ be the length of maximum subsequence from s[i:j+1]. Then we have 
+\[ dp[i][i]=1 \]
+\[ dp[i][j]=0, \forall i > j \]
+\[ dp[i][j] = max(dp[i+1][j], dp[i][j-1]) \ \text{if } s[i]\ne s[j] \]
+\[ dp[i][j] = max(dp[i+1][j], dp[i][j-1], dp[i+1][j-1]+2)\ \text{if }  s[i] == s[j]\]
+Note dp array is in size $O(n^2)$, thus our algorithm running time.

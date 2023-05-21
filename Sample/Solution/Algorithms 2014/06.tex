@@ -1,0 +1,24 @@
+\section{Edit distance}
+
+In order to transform one string x to a target string y,we can perform various edit operations. Our goal is,given x and y,to produce a series of edits that change x to y. We may choose from among edit operations:
+\begin{itemize}
+\item Insert a letter, (e.g., changing 100 to 1001 takes one insertion) 
+\item Delete a letter, (e.g., changing 100 to 10 takes one deletion) 
+\item Replace a letter by another (e.g., you need do one replacement to change 100 to 000).
+\end{itemize}
+Design an efficient algorithm that finds a series of edit operations that change x to y and the total number of edits is minimized. 
+
+{\bf Solution:} Denote $dp[i][j]$ as the optimal number of operations to transform $x[:i]$ to $y[:j]$. Then we have
+\[
+dp[i][j] = dp[i-1][j-1], \text{if } x[i]=y[j]
+\]
+\[
+dp[i][j] = 1+\min(dp[i][j-1], dp[i-1][j], dp[i-1][j-1]), \text{if } x[i]\ne y[j]
+\]
+\[
+dp[i][j] = i, \text{if } j=0
+\]
+\[
+dp[i][j] = j, \text{if } i=0
+\]
+The answer is just $dp[len(x)][len(y)]$.

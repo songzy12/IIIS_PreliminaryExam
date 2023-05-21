@@ -1,0 +1,7 @@
+\section{Longest path in a DAG}
+
+We are given a directed acyclic graph $G$ and two specific vertices $s$ and $t$ in $G$. Each edge in the graph has a length. Design a polynomial time algorithm that finds the longest path from $s$ to $t$. (if there is not path from $s$ to $t$, your algorithm should be able to detect the fact.)
+
+\ \\{\bf Solution:} First do a topology sort in polynomial time. If $t$ is before $s$, return no path. We now only care about the edges between $s$ and $t$, discard all the others. 
+
+Then run a DFS to enumerate the graph.

@@ -1,0 +1,19 @@
+
+\section{Perceptron and Kernel Methods}
+\begin{enumerate}
+\item Does the Perceptron algorithm have any advantages over the regular SVM algorithm?
+
+\ \\{\bf Solution:} Perceptrons can be trained online (i.e. their weights can be updated as new examples arrive one at a time).
+\[
+w \leftarrow w + y_ix_i
+\]
+
+\item Under what circumstance can a machine learning algorithm be kernelized (i.e, adapted to work with kernels)? Can you find a way to do this for the Perceptron algorithm? Explain the changes you need to make to it and why these changes are acceptable. Also explain whether this algorithm has any disadvantages.
+
+\ \\{\bf Solution:}
+\[
+w \cdot x + b = \sum_{j\in E} y_j x_j \cdot x + b
+\]
+\end{enumerate}
+
+We need to find a good kernel function.

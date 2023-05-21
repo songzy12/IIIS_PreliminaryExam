@@ -1,0 +1,17 @@
+\section{Matrix-chain multiplication}
+
+We state the matrix-chain multiplication problem as follows: given a chain of matrices $A_1A_2\dots A_n$ where $A_i$ has dimension $p_{i-1}\times p_i$. (Note the number of columns of $A_i$ must be the same as the number of rows of $A_{i+1}$). Assume multiplying a $x\times y$ matrix with a $y\times z$ matrix takes $xyz$ scalar multiplications. Design a polynomial time to find a fully parenthesization of the product $A_1\dots A_n$ in a way that minimizes the number of scalar multiplications.
+
+\ \\{\bf Solution:} For a $x\times y$ matrix and a $y\times z$ matrix, one element in the result matrix needs $y$ scalar multiplication, and there are $x\times z$ such elements. That is where the $x\times y\times z$ comes from.
+
+For a computation with $n$ matrices, we need $n+1$ numbers to store the state, i.e., $\{p_0, p_1, \dots, p_n\}$. Each multiplication is to pick one number $p_k$, remove it from the list, and add $p_{k-1}\times p_k\times p_{k+1}$ to the total cost. When the computation ends, there will only be two number left, which is $\{p_0, p_n\}$.
+
+We use $dp[i][j]$ to denote the minimum cost when we do the multiplication operations on the subsequence $\{p_i,p_{i+1},\dots,p_j\}$. By enumerating the last elements left between $p_i$ and $p_j$, we have 
+\[
+dp[i][j] = \min\{dp[i][k]+dp[k][j]+p_i\times p_k\times p_j | k\in\{i+1,\dots,j-1\}
+\] 
+where the base case is simply 
+\[
+dp[i][i+1] = 0, \forall i \in\{0,1\dots,n-1\}
+\]
+It can be shown that this algorithm works in $O(n^2)$.

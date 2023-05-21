@@ -1,0 +1,32 @@
+
+
+\section{Monge Matrix}
+\[
+A[i,j] + A[k,l] \le A[i,l]+A[k,j], \forall i<k\ \text{and}\ j<l
+\]
+\[\begin{pmatrix}
+10 & 9 & 12 & 10\\
+11 & 10 & 13 & 10\\
+9 & 8 & 0 & 7\\
+11 & 10 & 11 & 8
+\end{pmatrix}\]
+Let $f(i)$ be the column index of the leftmost minimum element of row $i$.
+\begin{enumerate}
+\item Show that $f(1)\le f(2)\le \dots\le f(m)$.
+\item Given an $m\times n$ Monge matrix, design an algorithm that computes $f(1),\dots,f(m)$ in $O(m+n\log m)$ time.
+\end{enumerate}
+{\bf Solution:}
+\begin{enumerate}
+\item For $i < j$, we want to prove $f(i) \le f(j)$. Suppose otherwise, we have $f(i) = s > f(j) = t$. Then 
+\[
+A[i,s] < A[i,t]
+\]
+\[
+A[j,t] \le A[j,s]
+\]
+\[
+A[i,s] + A[j,t] < A[i,t] + A[j,s]
+\]
+It contradicts with the definition of Monge matrix.
+\item We use divide-and-conquer. We first find $f(\lfloor m/2\rfloor)$ in time $O(n)$. Then based on the above conclusion, we can safely drop the bottom left quarter and top right quarter. Do the same operation for the top left quarter and bottom right quarter. Note that this procedure will end in $O(\log m)$ rounds. In each round, the total time cost for all the subtasks are $O(n)$. Furthermore, output all the results will cost time $O(m)$. That leads us to the time complexity of $O(m+ n\log m)$.
+\end{enumerate}
